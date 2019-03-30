@@ -98,8 +98,6 @@ class SpaceGame(App):
             
             for _ in range(self.production//5+1):
                     self.create()
-            if self.production == 5:
-                cA.destroy()
         for x in self.getSpritesbyClass(plasmaBolt):
             x.step()
     def create(self):
@@ -370,16 +368,18 @@ class axe(Sprite):
                             del activated[activated.index(x)]
                         
                         if x.__class__.__name__ =='shootSprite':
+                        
                             global score
-                            score+=150
+                            
+                            score = score + 150
                             increaseScore()
                         elif x.__class__.__name__ =='spdSprite':
                             global score
-                            score+=100
+                            score = score + 100
                             increaseScore()
                         elif x.__class__.__name__ =='meleeSprite':
                             global score
-                            score+=10
+                            score = score + 10
                             increaseScore()
                         print("hit", x.lp, len(myapp.allSprites))
                         del myapp.allSprites[myapp.allSprites.index(x)]
@@ -413,16 +413,17 @@ class plasmaBolt(Sprite):
                         if x.__class__.__name__ =='shootSprite':
                             
                             global score
-                            score+=150
+                            score = score + 150
                             print("hit2")
                             increaseScore()
                         elif x.__class__.__name__ =='spdSprite':
                             global score
-                            score+=100
+                            score= sccore + 100
                             increaseScore()
                         elif x.__class__.__name__ =='meleeSprite':
                             global score
-                            score = 10
+                            print(score)
+                            score = score + 100
                             print("hit2")
                             increaseScore()
                         
